@@ -1,8 +1,17 @@
 {%extends 'navbar.html'%}
+{% load staticfiles %}
 {%block content%}
 <head>
     <title>About Ecobrick</title>
     <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+            body {
+                font-family: Montserrat;
+                align-content: center;
+                text-align: center; 
+            }
+
             .column1 {
                 float: left;
                 width: 50%;
@@ -13,7 +22,25 @@
                 float: left;
                 width: 50%;
             }
-                        
+
+            .div3 {
+                float: left;
+                width: 100%;
+            }
+
+            table, th, td {
+                border: 1px dotted black;
+                padding: 9px;
+                text-align: center;
+                width: 50%;
+            }
+
+            img {
+            max-width: 650px;
+            max-height: 650px;
+            margin: 4px;
+            }
+                                        
             /* Clear floats after the columns */
             .row:after {
                 content: "";
@@ -38,6 +65,82 @@
             <center>
                 <br><br><br>
                 <img src="https://static1.squarespace.com/static/537f7791e4b081bbb40eb12a/t/55b53f93e4b026c1091e1195/1437941653144/eco_stock.jpg" alt="img" width="500">
+            </center>
+        </div>
+
+        <div class='div3'>
+            <center>
+                <h3>Some guidelines for making ecobricks: </h3><br>
+                <table>
+                    <tr>
+                        <th>Bottle Size</th>
+                        <th>Ideal Weight</th>
+                    </tr>
+                    <tr>
+                        <td>250 ML</td>
+                        <td>100 Grams</td>
+                    </tr>
+                    <tr>
+                        <td>500 ML</td>
+                        <td>180 Grams</td>
+                    </tr>
+                    <tr>
+                        <td>600 ML</td>
+                        <td>200 Grams</td>
+                    </tr>
+                    <tr>
+                        <td>1L</td>
+                        <td>350-370 Grams</td>
+                    </tr>
+                    <tr>
+                        <td>1.5L</td>
+                        <td>500 Grams</td>
+                    </tr>
+                    <tr>
+                        <td>2L</td>
+                        <td>640-650 Grams</td>
+                    </tr>
+                </table>
+                <br>
+                <table>
+                        <tr>
+                            <th>Types of Plastics</th>
+                        </tr>
+                        <tr>
+                            <td>Styrofoam</td>
+                        </tr>
+                        <tr>
+                            <td>Plastic Bags</td>
+                        </tr>
+                        <tr>
+                            <td>Packaging</td>
+                        </tr>
+                        <tr>
+                            <td>Straw</td>
+                        </tr>
+                        <tr>
+                            <td>Cellophane</td>
+                        </tr>
+                    </table>
+                    <br>
+                    <h3>Some other things to take note of...</h3>
+
+                    *Use dry and cleaned up bottles and plastics.<br>
+                    *Pack your plastics in your bottles tightly using a stick!<br>
+                    *Use plastics only, don't include metal, glass and biodegradeables.<br>
+                    *Weigh your ecobrick before depositing to be sure!<br>
+                    <br>
+                    <h3>So what do they do with these eco-bricks?</h3>  
+                    *Build a house!<br>
+                    <img src="{% static 'abt1.jpg' %}"><br>
+                    <h3>So what do they do with these eco-bricks?</h3>  
+                    *Build a chair/bench!!!<br>
+                    <img src="{% static 'abt2.jpg' %}"><br>
+                    <h3>So what do they do with these eco-bricks?</h3>  
+                    *Maybe even build a boat!!!<br>
+                    <img src="{% static 'abt3.jpg' %}"><br>
+
+
             </center>
         </div>
 </div>
