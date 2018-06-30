@@ -21,3 +21,7 @@ body {
 .reward{
     background-color: #e5edf9;
 }
+
+.premium-reward{
+    background-color: red;
+}

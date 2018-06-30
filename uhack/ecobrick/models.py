@@ -12,7 +12,7 @@ class Brick(models.Model):
 
 class Reward(models.Model):
     #reward details
-
+    premium = models.BooleanField(default=False)
     rewardName = models.CharField(max_length = 250)
     pointCost = models.PositiveIntegerField(default = 0)
     description = models.CharField(max_length = 1000)

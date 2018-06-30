@@ -11,7 +11,7 @@
             body {
                 font-family: Montserrat;
                 align-content: center;
-                text-align: center; 
+                text-align: center;
             }
 
             img {
@@ -33,7 +33,7 @@
                 padding: 10px;
                 margin: 0 auto;
             }
-            
+
 
             button {
                 margin-top: 8px;
@@ -65,8 +65,15 @@
                 You will get access to these PREMIUM features:
                    <center><table>
                         <tr>
-                            <td><img id="tao" src="{% static 'mot.png' %}"><br>Have your ecobricks picked up right at your doorstep!</td>
-                            <td><img id="tao" src="{% static 'mon.png' %}"><br>Get 1.25 more rewards points when depositing!</td>
+                            <td><img id="tao" src="{% static 'mot.png' %}"><br>Have your ecobricks picked up right at your doorstep!
+                                <center>
+                                    <form method = "POST">
+                                        {% csrf_token %}
+                                        <button type = "submit" name = "" class = "btn btn-success col-md-3" value = "{{reward.pointCost}}">Subscribe</button>
+                                    </form>
+                                </center></td>
+                            <td><img id="tao" src="{% static 'mon.png' %}"><br>Get 1.25 more rewards points when depositing!
+                                </td>
                             <td><img id="tao" src="{% static 'hand.png' %}"><br>Get exclusive rewards from our platinum partners!</td>
                         </tr>
                     </table></center>
@@ -83,7 +90,7 @@
                         <tr>
                             <td>Have your ecobricks picked up right at your doorstep!</td>
                             <td>Get 1.25 more rewards points when depositing!</td>
-                            <td>Get exclusive rewards from our platinum partners!</td>     
+                            <td>Get exclusive rewards from our platinum partners!</td>
                         </tr>
                     </table></center>
                 {% endif %}

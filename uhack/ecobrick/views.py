@@ -213,4 +213,9 @@ def subscription(request):
         'loggeduser': loggeduser,
     }
 
+    if request.method == "POST":
+        loggeduser.isPremium = True
+        loggeduser.save()
+
+
     return render(request,'subscription.html',context)

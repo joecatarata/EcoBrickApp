@@ -4,11 +4,11 @@
     <head><title>BricklyRewards</title>
         <style>
             @import url('https://fonts.googleapis.com/css?family=Montserrat');
-    
+
             body {
                     font-family: Montserrat;
                     align-content: center;
-                    text-align: center; 
+                    text-align: center;
                 }
                 </style>
                 </head>
@@ -19,6 +19,30 @@
         </div>
     {% for reward in rewards %}
 
+            {% if reward.premium %}
+            <div class = "row premium-reward col-md-12 mt-0">
+                <div class = "col-md-9">
+                    <div class = "col reward-name">
+                        {{reward.rewardName}}
+                    </div>
+                    <div class = "col reward-desc">
+                        {{reward.description}}
+                    </div>
+                    <div class = "col reward-cost">
+                        Points needed: {{reward.pointCost}}
+                    </div>
+                </div>
+                <form method = "POST">
+                    <br>
+                    {% csrf_token %}
+                    {% if loggeduser.isPremium %}
+                    <button type = "submit" name = "del-{{reward.pk}}" class = "btn btn-success col-md-3" value = "{{reward.pointCost}}">Claim Reward</button>
+                    {% endif %}
+                </form>
+
+            </div>
+            <br><br>
+        {% else %}
             <div class = "row reward col-md-12 mt-0">
                 <div class = "col-md-9">
                     <div class = "col reward-name">
@@ -39,6 +63,7 @@
 
             </div>
             <br><br>
+            {% endif %}
     {% endfor %}
     </div>
     <div class = "col-md-6">
