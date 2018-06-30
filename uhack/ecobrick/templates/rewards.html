@@ -1,0 +1,51 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+            <head><title>BricklyRewards</title></head>
+    <div class = "container-fluid">
+    <div class = "col-md-6">
+        <div class = "row points-earned ">
+            Points earned: {{loggeduser.brickPoints}}
+        </div>
+    {% for reward in rewards %}
+
+            <div class = "row reward col-md-12 mt-0">
+                <div class = "col-md-9">
+                    <div class = "col reward-name">
+                        {{reward.rewardName}}
+                    </div>
+                    <div class = "col reward-desc">
+                        {{reward.description}}
+                    </div>
+                    <div class = "col reward-cost">
+                        Points needed: {{reward.pointCost}}
+                    </div>
+                </div>
+                <form method = "POST">
+                    {% csrf_token %}
+                    <button type = "submit" name = "del-{{reward.pk}}" class = "btn btn-success col-md-3" value = "{{reward.pointCost}}">Claim Reward</button>
+                </form>
+
+            </div>
+            <br><br>
+    {% endfor %}
+    </div>
+    <div class = "col-md-6">
+        <div class = "row points-earned ">
+            My Rewards:
+        </div>
+        {% for reward in myRewards %}
+        <div class = "row reward col-md-12 mt-0">
+            <div class = "col-md-12">
+                <div class = "col reward-name">
+                    {{reward.rewardName}}
+                </div>
+                <div class = "col reward-desc">
+                    {{reward.description}}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

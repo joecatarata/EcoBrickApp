@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+body {
+    font-family: Montserrat;
+}
+.points-earned{
+    font-size: 3em;
+}
+.reward-name{
+    font-size: 2em;
+}
+
+.reward-desc{
+    font-size: 1.2em;
+}
+
+.reward-cost{
+    font-size: 1.4em;
+}
+
+.reward{
+    background-color: #e5edf9;
+}

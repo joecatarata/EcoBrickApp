@@ -1,0 +1,106 @@
+{% load staticfiles %}
+<head>
+    <title>Admin Page</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <style>
+            @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    
+            body {
+                font-family: Montserrat;
+                align-content: center;
+                text-align: center; 
+            }
+    
+            .container {
+                font-family: 'Montserrat', serif;
+                align-items: center;
+                text-align: center;
+                padding: 30px;
+            }
+    
+            .map {
+                font-family: 'Montserrat', serif;
+                width: 50%;
+                align-content: center;
+                text-align: center;
+                border-style: dashed;
+                border-color: black;
+                padding: 10px;
+                margin: 0 auto;
+            }
+    
+            img {
+                max-width: 100px;
+                max-height: 100px;
+                margin: 4px;
+            }
+
+             ul {
+                font-family: 'Montserrat', serif;
+                font-weight: bold;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #00e673;
+                transition: all .4s ease;
+                -webkit-transition: all .4s ease;
+            }
+
+            img.resize {
+                max-width:13%;
+                max-height:13%;
+            }
+
+            input {
+                font-family: 'Montserrat', serif;
+            }
+
+            input:hover {
+                background-color:#00e673;
+            }
+            </style>
+        <script>
+            function myalert(){
+                alert("Successfully added ecobrick to account!")
+            }
+        </script>
+         </head>
+   <body>
+       <ul>
+           <li style="float:right"><a href="/logout/">Logout</a></li>
+           <li style="float:right"><a href="#">Welcome back, {{loggeduser.firstName}}!</a></li>
+
+       </ul>
+            <br><br>
+            <div id='container'>
+                <img id="tao" src="{% static 'admin.png' %}"><br>
+                <h3>Admin Page</h3>
+                <div id='map'>
+                <form method="POST" onSubmit="myalert()">
+                    {%csrf_token%}
+                    Username: <br><input type="text" name="userId"><br>
+                    Number of EcoBrick: <br><input type="number" name="numEcobrick"><br>
+                    Total weight of EcoBrick: <br><input type="number" name="weightEco"><br>
+                    <br>
+                    <input type="submit" class = "btn btn-dark">
+                 </form>
+            </div>
+            </div>
+</body>

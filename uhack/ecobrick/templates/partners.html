@@ -1,0 +1,41 @@
+{% extends 'navbar.html' %}
+{% block content %}
+    <head>
+        <title>Partners</title>
+        <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        body {
+            font-family: Montserrat;
+            align-content: center;
+            text-align: center; 
+        }
+
+        .container {
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .map {
+            width: 50%;
+            align-content: center;
+            text-align: center;
+            border-style: dashed;
+            border-color: black;
+            padding: 10px;
+            margin: 0 auto;
+        }
+        </style>
+    </head>
+    <body>
+        <div id='container'>
+            <h3>Partners and Drop-off Locations</h3>
+            <div id='map'>
+                    <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1BPz6dFpcgCxzP1v9hWDCiAwSPFMZgSbh" width="640" height="480"></iframe>
+            </div>
+
+        </div>
+
+    </body>
+   {% endblock %}

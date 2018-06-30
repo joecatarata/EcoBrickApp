@@ -1,0 +1,60 @@
+{% extends 'navbar.html' %}
+{% load static %}
+{% block content %}
+<html>
+    <head>
+        <title>My Profile</title>
+        <link rel="stylesheet" type="text/css" href="static/base.css">
+    </head>
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        body {
+            font-family: Montserrat;
+            align-content: center;
+            text-align: center; 
+        }
+
+        img {
+            max-width: 80px;
+            max-height: 80px;
+            margin: 4px;
+        }
+
+        .yes {
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        #info, #score {
+            width: 50%;
+            align-content: center;
+            text-align: center;
+            border-style: dashed;
+            border-color: black;
+            padding: 10px;
+            margin: 0 auto;
+        }
+    </style>
+    <script></script>
+    <body>
+        <br><br><br><br>
+        <div id='yes'>
+            <div id='info'>
+                <img id="tao" src="{% static 'tao.png' %}"><br>
+                USERNAME: {{user.username}}<br>
+                NAME: {{user.firstName}} {{user.lastName}}<br>
+                ADDRESS: {{user.address}}<br>
+                EMAIL: {{user.email}}<br>
+                CONTACT NO.: {{user.contactNum}}<br>
+            </div><br>
+            <div id='score'>
+                <img id="bote" src="{% static 'bote.png' %}"><br>
+                MY BRICKS: {{user.brickNum}}<br>
+                TOTAL WEIGHT: {{user.brickWeight}}<br>
+            </div>
+        </div>
+    </body>
+</html>
+{% endblock %}

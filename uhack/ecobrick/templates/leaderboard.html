@@ -1,0 +1,52 @@
+{% extends 'navbar.html' %}
+{% load staticfiles %}
+{% block content %}
+    <head>
+        <title>Leaderboard</title>
+        <style>
+        @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+        body {
+            font-family: Montserrat;
+            align-content: center;
+            text-align: center; 
+        }
+
+        .container {
+            align-items: center;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .map {
+            width: 50%;
+            align-content: center;
+            text-align: center;
+            border-style: dashed;
+            border-color: black;
+            padding: 10px;
+            margin: 0 auto;
+        }
+
+        img {
+            max-width: 100px;
+            max-height: 100px;
+            margin: 4px;
+        }
+        </style>
+    </head>
+    <body>
+        <br><br>
+        <div id='container'>
+                <img id="tao" src="{% static 'medal.png' %}"><br>
+            <h3>TOP 10 ECOBRICKERS</h3>
+            <div id='map'>
+                {% for user in top_users %}
+                {{user.username}} --------------- {{user.brickWeight}} grams <br>
+                {% endfor %}
+            </div>
+
+        </div>
+
+    </body>
+   {% endblock %}

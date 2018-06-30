@@ -1,0 +1,62 @@
+{% load static %}
+<html>
+    <head>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+            ul {
+                font-family: 'Montserrat', serif;
+                font-weight: bold;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                overflow: hidden;
+                background-color: #333;
+            }
+
+            li {
+                float: left;
+            }
+
+            li a {
+                display: block;
+                color: white;
+                text-align: center;
+                padding: 14px 16px;
+                text-decoration: none;
+            }
+
+            li a:hover {
+                background-color: #00e673;
+                transition: all .4s ease;
+                -webkit-transition: all .4s ease;
+            }
+
+            img.resize {
+                max-width:13%;
+                max-height:13%;
+            }
+        </style>
+        <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}">
+        <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    </head>
+    <body>
+        <ul>
+            <!-- <li><img class='resize' src="/static/logo.png"></li> -->
+            <li><a href="{% url 'home' %}">Home</a></li>
+            <li><a href="/about">About EcoBricks</a></li>
+            <li><a href="{% url 'partners' %}">Partners</a></li>
+            <li><a href="/leaderboard">Leaderboard</a></li>
+            {% if loggeduser == 0 %}
+            <li style="float:right"><a href="/login/">Login</a></li>
+            <li style="float:right"><a href="/register/">Register</a></li>
+            {% else %}
+            <li><a href="/rewards">Rewards</a></li>
+            <li style="float:right"><a href="/logout/">Logout</a></li>
+            <li style="float:right"><a href="/profile/{{loggeduser.id}}">Welcome back, {{loggeduser.firstName}}!</a></li>
+            {% endif %}
+        </ul>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>
