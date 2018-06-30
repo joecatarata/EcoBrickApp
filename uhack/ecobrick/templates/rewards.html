@@ -1,7 +1,17 @@
 {% extends 'navbar.html' %}
 {% load static %}
 {% block content %}
-            <head><title>BricklyRewards</title></head>
+    <head><title>BricklyRewards</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Montserrat');
+    
+            body {
+                    font-family: Montserrat;
+                    align-content: center;
+                    text-align: center; 
+                }
+                </style>
+                </head>
     <div class = "container-fluid">
     <div class = "col-md-6">
         <div class = "row points-earned ">
@@ -22,6 +32,7 @@
                     </div>
                 </div>
                 <form method = "POST">
+                    <br>
                     {% csrf_token %}
                     <button type = "submit" name = "del-{{reward.pk}}" class = "btn btn-success col-md-3" value = "{{reward.pointCost}}">Claim Reward</button>
                 </form>

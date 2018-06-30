@@ -202,3 +202,15 @@ def leaderboard(request):
     }
 
     return render(request, 'leaderboard.html', context)
+
+def subscription(request):
+    try:
+        loggeduser = UserDetail.objects.get(id=request.session['user'])
+    except(KeyError, UserDetail.DoesNotExist):
+        loggeduser = 0
+
+    context = {
+        'loggeduser': loggeduser,
+    }
+
+    return render(request,'subscription.html',context)

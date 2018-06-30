@@ -33,9 +33,23 @@
                 padding: 10px;
                 margin: 0 auto;
             }
+            
 
             button {
                 margin-top: 8px;
+            }
+
+            table, th, td {
+                border: 1px dotted black;
+                padding: 9px;
+                text-align: center;
+                width: 80%;
+            }
+
+            img {
+            max-width: 300px;
+            max-height: 300px;
+            margin: 4px;
             }
         </style>
 
@@ -45,9 +59,34 @@
         <div id='yes'>
             <br>
         <div id = "container">
-                <img id="tao" src="{% static 'lock.png' %}"><br>
+                <img id="tao" src="{% static 'prem.png' %}"><br><br>
+                {% if loggeduser.isPremium == False %}
+                <h3>Subscribe to our Premium Subscription now!</h3>
+                You will get access to these PREMIUM features:
+                   <center><table>
+                        <tr>
+                            <td><img id="tao" src="{% static 'mot.png' %}"><br>Have your ecobricks picked up right at your doorstep!</td>
+                            <td><img id="tao" src="{% static 'mon.png' %}"><br>Get 1.25 more rewards points when depositing!</td>
+                            <td><img id="tao" src="{% static 'hand.png' %}"><br>Get exclusive rewards from our platinum partners!</td>
+                        </tr>
+                    </table></center>
 
-
+                {% else %}
+                <h3>Thank you for joining our Premium Subscription!</h3>
+                    You have access to these PREMIUM features:
+                <center><table>
+                        <tr>
+                            <td><img id="tao" src="{% static 'mot.png' %}"></td>
+                            <td><img id="tao" src="{% static 'mon.png' %}"></td>
+                            <td><img id="tao" src="{% static 'hand.png' %}"></td>
+                        </tr>
+                        <tr>
+                            <td>Have your ecobricks picked up right at your doorstep!</td>
+                            <td>Get 1.25 more rewards points when depositing!</td>
+                            <td>Get exclusive rewards from our platinum partners!</td>     
+                        </tr>
+                    </table></center>
+                {% endif %}
             </div>
         </div>
     </div>
